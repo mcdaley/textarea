@@ -1,0 +1,14 @@
+//-----------------------------------------------------------------------------
+// app/assets/stylesheets/_global_styles.css.scss
+//-----------------------------------------------------------------------------
+
+// import the CSS framework
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+$primary-brand:               #4D148C;
+$secondary-brand:             #FF9100;
+$body-bkgrd:                  #FFFFFF;
+$hover-bkgrd:                 #F5F5F5;
+$border:                      #DDDDDD;
+$grayed-out:                  lighten($text-color, 30%);

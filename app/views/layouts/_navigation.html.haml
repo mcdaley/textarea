@@ -7,7 +7,15 @@
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      = link_to 'Home', root_path, class: 'navbar-brand'
+      -if user_signed_in?
+        = link_to 'Home',   tasks_path, class: 'navbar-brand'
+      -else
+        = link_to 'Home', root_path, class: 'navbar-brand'
     .collapse.navbar-collapse
       %ul.nav.navbar-nav
-        = render 'layouts/navigation_links'
+        -if user_signed_in?
+          %li
+            = link_to 'Tasks',  tasks_path
+          -# = render 'layouts/navigation_links'
+      %ul.nav.navbar-nav.navbar-right  
+        = render 'layouts/nav_links_for_auth'
