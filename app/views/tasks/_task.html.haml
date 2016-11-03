@@ -4,4 +4,5 @@
 %li.list-group-item
   %div.task
     %p= task.description
-    %p= task.due
+    -# %p= task.due.to_s(:rfc822)          unless task.due.blank?
+    %p= task.due.strftime('%m/%d/%y')   unless task.due.blank?

@@ -50,7 +50,7 @@ class TasksController < ApplicationController
     # Strong parameters
     #
     def task_params
-      params.require(:task).permit(:description, :due, :complete, :user_id)
+      params.require(:task).permit(:description, :due_text, :complete, :user_id)
     end
     
     ##

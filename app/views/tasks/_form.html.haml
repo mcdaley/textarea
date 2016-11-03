@@ -3,7 +3,7 @@
 -# ----------------------------------------------------------------------------
 
 = simple_form_for @task do |f|
-  = f.input     :description,   as:         :text,      autofocus:  true
-  = f.input     :due
+  = f.input     :description,   as:         :text,              autofocus:  true
+  = f.input     :due_text,      label:      "Due",              input_html: { class: 'datepicker' }
   = f.button    :submit,        class:      'btn btn-primary'
   = submit_tag  :cancel,        class:      'btn btn-default'
