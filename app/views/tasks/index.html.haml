@@ -12,6 +12,7 @@
     
   %div.col-xs-6.col-sm-6.col-md-6.col-lg-6
     %h4 My Tasks
+    %label.invisible "hidden label to align tasks with task form"
     %ul.list-group
       - @tasks.each do |task|
         = render partial: 'task', locals: { task: task }
