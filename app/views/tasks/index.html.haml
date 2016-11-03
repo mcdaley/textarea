@@ -8,5 +8,10 @@
 %div.row
   %div.col-xs-6.col-sm-6.col-md-6.col-lg-6
     %h4 Add Task
+    = render 'form'
+    
   %div.col-xs-6.col-sm-6.col-md-6.col-lg-6
-    %h4 List of tasks
+    %h4 My Tasks
+    %ul.list-group
+      - @tasks.each do |task|
+        = render partial: 'task', locals: { task: task }

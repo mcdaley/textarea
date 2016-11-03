@@ -10,6 +10,7 @@ class TasksController < ApplicationController
     
     @user   = current_user
     @tasks  = @user.tasks
+    @task   = @user.tasks.new
   end
   
   def new
@@ -35,7 +36,7 @@ class TasksController < ApplicationController
       logger.info   "[TASKS]: saved tasks, with description= #{@task.description}"
       redirect_to   tasks_path
     else
-      logger.error  "[TASKS]: Failed to save the task, errors are #{@tasks.errors.messages.inspect}"
+      logger.error  "[TASKS]: Failed to save the task, errors are #{@task.errors.messages.inspect}"
       render        'new'
     end
   end
