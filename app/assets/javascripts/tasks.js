@@ -2,7 +2,7 @@
 // app/assets/javascripts/tasks.js
 //-----------------------------------------------------------------------------
 
-/****
+/**
  * Print some info to the console
  */
 jQuery.fn.verifyJQuery = function() {
@@ -15,8 +15,8 @@ jQuery.fn.verifyJQuery = function() {
 // main()
 //-----------------------------------------------------------------------------
 $(function() {
-  // Attempt to pop open an alert window
-  $("ul.list-group").verifyJQuery();
+  //** Attempt to pop open an alert window
+  //** $("ul.list-group").verifyJQuery();
   
   $( ".datepicker" ).datepicker();
 });
