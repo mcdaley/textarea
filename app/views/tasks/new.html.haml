@@ -1,12 +1,13 @@
 -# ----------------------------------------------------------------------------
--# app/views/tasks/index.html.haml
+-# app/views/tasks/new.html.haml
 -# ----------------------------------------------------------------------------
 %div.row
   %div.col-xs-12.col-sm-12.col-md-12.col-lg-12
-    %h1 Text Area Example
-  
+    %h1 Add New Task
+    
 %div.row
   %div.col-xs-6.col-sm-6.col-md-6.col-lg-6
-    %h4 Add Task
+    = render 'form'
+  
   %div.col-xs-6.col-sm-6.col-md-6.col-lg-6
-    %h4 List of tasks
+    &nbsp;
