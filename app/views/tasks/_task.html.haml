@@ -7,4 +7,6 @@
     %p= task.due.strftime('%m/%d/%y')   unless task.due.blank?
     -# %p= task.due.to_s(:rfc822)          unless task.due.blank?
     %div
-      = link_to 'Edit', edit_task_path(task.id), data: { remote: true }
+      = link_to 'Edit',   edit_task_path(task.id),  data: { remote: true }
+      |
+      = link_to 'Delete', task_path(task.id),       method: :delete

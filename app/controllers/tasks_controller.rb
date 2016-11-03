@@ -89,6 +89,18 @@ class TasksController < ApplicationController
     end
   end
   
+  def destroy
+    logger.debug("[TASKS]: destroy, params=[#{params.inspect}]")
+    
+    @user = current_user
+    @task = @user.tasks.destroy(params[:id])
+    
+    respond_to do |format|
+      format.html { redirect_to :back     }
+      ## format.js   { render      'destroy' } 
+    end
+  end
+  
   #----------------------------------------------------------------------------
   # Private
   #----------------------------------------------------------------------------
