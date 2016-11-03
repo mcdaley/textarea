@@ -34,10 +34,19 @@ class TasksController < ApplicationController
     
     if @task.save
       logger.info   "[TASKS]: saved tasks, with description= #{@task.description}"
-      redirect_to   tasks_path
+      
+      respond_to do |format|
+        format.html { redirect_to   tasks_path      }
+        format.js   { render        'new'           }
+      end
+      
     else
       logger.error  "[TASKS]: Failed to save the task, errors are #{@task.errors.messages.inspect}"
-      render        'new'
+
+      respond_to do |format|
+        format.html { render        'new'           }
+        format.js   { render        'create_error'  }
+      end      
     end
   end
   
@@ -74,8 +83,8 @@ class TasksController < ApplicationController
     else
       logger.error  "[TASKS]: failed to update task w/ id=#{@task.id}, errors= #{@task.errors.messages}"
       respond_to do |format|
-        format.html { render        'edit'      }
-        format.js   { render        'cancel'    }
+        format.html { render        'edit'          }
+        format.js   { render        'update_error'  }
       end
     end
   end

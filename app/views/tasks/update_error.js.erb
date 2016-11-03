@@ -1,0 +1,8 @@
+//-----------------------------------------------------------------------------
+// app/views/tasks/update_error.js.erb
+//-----------------------------------------------------------------------------
+<% unless @task.errors.full_messages_for(:description).empty? %>
+  $('li#task-<%= @task.id %>').find("div.task_description")
+                              .addClass('has-error')
+                              .append("<span class='help-block'><%= @task.errors.full_messages_for(:description)[0] %></span>");
+<% end %>
