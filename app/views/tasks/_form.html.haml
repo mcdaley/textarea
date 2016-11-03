@@ -2,7 +2,10 @@
 -# app/views/tasks/_form.html.haml
 -# ----------------------------------------------------------------------------
 
-= simple_form_for @task do |f|
+= simple_form_for @task,  remote: true, 
+                          as:     :task,
+                          html:   { id: "edit-task-#{@task.id}" } do |f|
+        
   = f.input     :description,   as:         :text,  input_html: { rows:  "5"          }, autofocus:  true
   = f.input     :due_text,      label:      "Due",  input_html: { class: 'datepicker' }
   = f.button    :submit,        class:      'btn btn-primary'

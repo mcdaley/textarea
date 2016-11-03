@@ -15,8 +15,6 @@ jQuery.fn.verifyJQuery = function() {
 // main()
 //-----------------------------------------------------------------------------
 $(function() {
-  //** Attempt to pop open an alert window
-  //** $("ul.list-group").verifyJQuery();
-  
+  // Turn on the datepicker
   $( ".datepicker" ).datepicker();
 });

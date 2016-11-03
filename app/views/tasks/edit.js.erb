@@ -1,0 +1,8 @@
+//-----------------------------------------------------------------------------
+// app/views/tasks/edit.js.erb
+//-----------------------------------------------------------------------------
+$("li.list-group-item").filter('#task-<%= @task.id %>')
+                       .css("background-color", "#FAFAFA" )
+                       .find('div.task').first()
+                       .hide()
+                       .after('<%= j render("form") %>');

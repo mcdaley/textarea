@@ -46,6 +46,11 @@ class TasksController < ApplicationController
     
     @user   = current_user
     @task   = @user.tasks.find(params[:id])
+    
+    respond_to do |format|
+      format.html { render 'edit' }
+      format.js   { render 'edit' }
+    end
   end
   
   def update
@@ -62,10 +67,16 @@ class TasksController < ApplicationController
     
     if @task.update(task_params)
       logger.debug  "[TASKS]: successfully updated task w/ id=#{@task.id}"
-      redirect_to   tasks_path
+      respond_to do |format|
+        format.html { redirect_to   tasks_path  }
+        format.js   { render        'update'    }
+      end
     else
       logger.error  "[TASKS]: failed to update task w/ id=#{@task.id}, errors= #{@task.errors.messages}"
-      render        'edit'
+      respond_to do |format|
+        format.html { render        'edit'      }
+        format.js   { render        'cancel'    }
+      end
     end
   end
   
