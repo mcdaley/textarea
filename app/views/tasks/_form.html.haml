@@ -1,10 +1,11 @@
 -# ----------------------------------------------------------------------------
 -# app/views/tasks/_form.html.haml
 -# ----------------------------------------------------------------------------
+- id = @task.id.blank? ? 'form' : @task.id
 
 = simple_form_for @task,  remote: true, 
                           as:     :task,
-                          html:   { id: "edit-task-#{@task.id}" } do |f|
+                          html:   { id: "edit-task-#{id}" } do |f|
         
   = f.input     :description,   as:         :text,  input_html: { rows:  "5"          }, autofocus:  true
   = f.input     :due_text,      label:      "Due",  input_html: { class: 'datepicker' }

@@ -35,9 +35,15 @@ class TasksController < ApplicationController
     if @task.save
       logger.info   "[TASKS]: saved tasks, with description= #{@task.description}"
       
+      #########################################################################
+      # TODO: 11/03/2016
+      # - I NEED TO CREATE A create.js.erb TEMPLATE FILE THAT WILL CLEAR THE
+      #   FORM AND THEN REDRAW THE LIST OF TASKS. I'VE TAKEN THE EASY WAY
+      #   BY REDIRECTING TO THE TASKS#INDEX VIEW.
+      #########################################################################
       respond_to do |format|
         format.html { redirect_to   tasks_path      }
-        format.js   { render        'new'           }
+        format.js   { render        'create'        }
       end
       
     else
